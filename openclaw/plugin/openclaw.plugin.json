@@ -1,0 +1,54 @@
+{
+  "id": "deepself",
+  "name": "Deepself",
+  "description": "Multi-persona training and consultation system",
+  "version": "1.0.0",
+  "skills": ["../skill"],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "apiKey": {
+        "type": "string",
+        "description": "Deepself API key for authentication"
+      },
+      "baseUrl": {
+        "type": "string",
+        "description": "API base URL",
+        "default": "https://api.hw1.deepself.me/v1"
+      },
+      "models": {
+        "type": "object",
+        "description": "Your deepself models configuration",
+        "additionalProperties": {
+          "type": "object",
+          "properties": {
+            "username": {
+              "type": "string",
+              "description": "Model username (e.g., clawdbot-higher-001)"
+            },
+            "purpose": {
+              "type": "string",
+              "description": "Purpose of this deepself model"
+            }
+          },
+          "required": ["username"]
+        }
+      }
+    }
+  },
+  "uiHints": {
+    "apiKey": {
+      "label": "Deepself API Key",
+      "sensitive": true,
+      "placeholder": "sk-..."
+    },
+    "baseUrl": {
+      "label": "API Base URL",
+      "placeholder": "https://api.hw1.deepself.me/v1"
+    },
+    "models": {
+      "label": "Deepself Models"
+    }
+  }
+}
